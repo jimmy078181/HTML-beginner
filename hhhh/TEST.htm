@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en-US">  <!lang="" ,means language declaration >
 
@@ -267,3 +268,272 @@ Example.com<br>
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en-US">  <!lang="" ,means language declaration >
+
+<head>
+ <title> MY First HTML</title>
+ <meta charset="UTF-8">
+ <link rel="stylesheet" href="style.css">  
+ <!external CSS IMPORT!,rel = 和href連接的檔案是什麼關係,如果沒有放在網路上https:,在相同的folder>
+ <style> /*Internal  CSS 區*/
+        p{color: blue}
+        #p01 { color: darkblue;}
+        body {background-color: cornflowerblue}  
+        h6   {color: chocolate} 
+        p.error{ color: darkmagenta}
+        a:link{color:green; background-color: transparent;text-decoration: none}
+        a:visited{color:pink; background-color: transparent;text-decoration: none} /*點過便粉紅色*/
+        a:hover{color:red; background-color: transparent;text-decoration: underline} /*滑鼠在上面的顏色,還有底線*/
+        img{ width: 100% ;
+             height:none;
+        }
+        table, th, td {border:1px solid black;
+                       border-collapse:collapse /*1條線的框*/
+        } 
+        th,td{ padding:15px} 
+        th{ text-align:left}  /*置左*/
+        table{
+            border-spacing: 5px; /*if table has collapsed border, border-spacing has no effect*/
+        }
+        table#t01 th{
+            width:100%;
+            background-color:chocolate; 
+        }
+        table#t01 tr:nth-child(even){
+            
+            background-color:#eee; 
+        }
+        table#t01 tr:nth-child(odd){
+            
+            background-color:dimgray; 
+        }
+ </style>  
+<! above  style is Internal css>
+<! max-width:100% 可以確保圖像不會超越父容器寬度>
+
+<!metadata is not displayed,define document title,style,link,scripts>
+</head>
+
+<body style="background-image: url('picture/真德.png')"> 
+<!body style="background-color:powderblue>    
+
+<h1> my first heading</h1>  <! haeding tag , style:font-size,text-align,font-family,color>
+<h2 title="I'm a header" style="font-size: 60px"> my second heading</h2> <! tag can be h1~h6 > 
+<! Browsers automatically add some white space berfore and after a heading> 
+<hr> <!horizontal>
+
+<p class="error"> i am p.error</p>
+<p id = "p01"> i am p01</p>
+<p> my first paragraph.</p> <! paragraph tag & 會換2行,多的space不會列入計算,行數依螢幕大小決定 >
+<p style="color: red" title="I'm a tooltip" > my second paragraph</p> <!style:font-size,text-align,font-family,color > 
+<p><font face="verdana" color="green" style="font-size: 150%"> this is font </font></p> 
+<p style="font-family: 'Courier New', Courier, monospace;"> this is second font </p> <!字型>
+<p style="font-size: 150%" > 150%!!!!</p><!大小>
+<p style="text-align: center;"> center paragraph</p><!置中>
+<p><strong>Note:</strong> the font element is not supported in HTML5. Use CSS instead </p>
+<!strong means important text > 
+<p><b>this text is bold </b></p><!bold>
+<p><i> this text is italic </i></p> <!italic>
+<p><em>this text is emphasized</em></p><!emphasized = important>
+<p>this text is <small>smaller</small>text</p> <!smaller text >
+<p>this text is <mark>marked</mark> text</p> <!marked text >
+<p>my favorite color is <del>blue</del> red</p><!delete>
+<p>my favorite color is <ins>blue</ins></p><!底線>
+<p>this text is <sub>subscriipted</sub> text</p> <!字向下沉 >
+<p>this text is <sup>superscriipted</sup> text</p> <!字向上浮 >
+
+<font color="green"> this is third font </font>
+<!Browsers automatically add some white space berfore and after a paragraph> 
+<!In Html spaces and new line are ignored >
+<br><! line break 會換一行 strict validation :end have <br/ >
+
+
+<pre>
+    MY name is jimmy.
+    Nice to meet you.
+</pre><! pre tag can preserves both spaces and lines,usually courier >
+
+<!HTML quotation////////////////////////////////////////////////////////////////////////////////>
+<p>my goal is to :<q>Sleep all day.</q></p> <!quotation >
+<blockquote cite="http://www.youtube.com">my goal is to sleep all day</blockquote> <!><!a section that is quoted from another source,前面會空白>
+<p>The<abbr title="World Health Organization">WHO</abbr> was found in 1948.</p>
+<p><cite>The scream</cite> by chuchu</p><!define the title of a work,usually us italic>
+<bdo dir="rtl">This twxt will be written from right to left</bdo> <!bi-direction override>
+<address><!contact information,usually displayed in italic>
+Written by John Doe.<br>
+Vist us at:<br>
+Example.com<br>
+</address>
+<!HTML quotation////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML Link/////////////////////////////////////////////////////////////////////////////////////>
+<a href="https://www.w3schools.com" title="Go to w3schools" target="_blank"> This is a link</a> 
+<! link tag: href is the attribute of tag <a,absolute URL>
+<!_blank:open in new window,_self:open in same window,_parent:open in parent frame,_top:open in full body of the window,framename:open in named frame >
+<a href="html_images.asp" target="_blank"> HTML Images</a> 
+<!Loca link:ralative URL(same web site)>
+<a href="https://www.w3schools.com" target="_blank">  <!use image as link>
+    <img src="default.asp" alt="HTNL toutorialaaa" style="width: 42px;height:42px;border:0">
+    <!border:0 to prevent IE9(and earlier) from displaying a border around the image,when img is a link > 
+</a>
+<h2 id="C4"> Chapter 4</h2> <! add bookmark:直接跳到那部分><!anchor link how to smooth srcoll>
+<a href="#C4">Jump to Chapter 4</a> <!也可以寫: href="html_demo.html#C4 ">
+<a href="https://www.w3schools.com/html/default.asp">HTML tutorial</a>
+<!寫href="/html/default.asp":the link is in the html folder on the current web site>
+<!寫href="default.asp":the link is located in the same folder on the current page>
+
+<br> <!empty tag ,don't need end tag>
+<!HTML Link////////////////////////////////////////////////////////////////////////////////////>
+<!margin:space outside the border,padding:space inside the border>
+
+
+<!HTML IMage////////////////////////////////////////////////////////////////////////////////////>
+<img src="w3schools.jpg" alt="w3shools.com" width="104" height="142">
+ <!width&height are defined in pixels,but the stylesheet will override it>
+<img src="w3schools.jpg" alt="w3shools.com" style="width:104px; height:142px">
+<!stylesheet 不會 override style width height>
+<img src="picture/NieR.jpg" alt="NIER" style="width:128px; height:128px"><!html allow GIFs  >
+<img src="https://www.w3schools.com/images/gennn.jpg/" alt="green"><!access images from any web address>
+<! src: address,alt:if img don't display alt will display >
+<p style="background-image: url(w3schools.jpg)"><img src="chu.jpg" alt="chu" style="float:right;width:100px;height: 100px">the picture is on the right of paragraph</p>
+<p><img src="chu.jpg" alt="chu" style="float:left;width:100px;height: 100px">the picture is on the left of paragraph</p><!float>
+<!image map >
+<img src="workplace.jpg" alt="workplace" style="width:250px;height:250px"usemap="#workmap" >
+<map name ="workmap" >
+    <area shape="rect" coords="0,0,50,50" alt="computer" href="https://www.google.com" target="_blank">
+    <area shape="rect" coords="0,200,50,250" alt="computer" href="https://www.google.com" target="blank">
+    <area shape="circle" coords="52,52,50" alt="computer" href="https://www.google.com" target="blank">
+</map>
+<!corrds:做標>
+<picture>
+    <source media="(min-width:650px)" srcset="picture/NieR-1.jpg"><!先從第一個source開始看,size不合在往下,最後img必須設定,怕browser沒有支援picture>
+    <source media="(min-width:450px)" srcset="picture/NieR-2.jpg"><!?畫面解析度小於650px的話用第一個,否則第二個,都不符合用img>
+    <img src="picture/saber.png" alt="default" style="width: auto">
+</picture>
+<!HTML IMage////////////////////////////////////////////////////////////////////////////////////>
+<br>
+<!HTML Table////////////////////////////////////////////////////////////////////////////////////>
+<table style="width:100%"> <!頁面寬度的100%>
+    <tr style="color:red"><! 1行1個 tr tag>
+        <th >Firstname</th> <! th define table header>
+        <th>Lastname</th>
+        <th>score</th>
+    </tr>
+    <tr style="color:red">
+        <td>Jill</td> <!td define table data/cell>
+        <td>smith</td>
+        <td>80</td>
+    </tr>
+    <tr style="background-color:red ;color:white">
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>75</td>
+    </tr>
+
+</table> <!如果要邊框 要用CSS Border 去上面style看>
+<br>
+<table style="width:100%"> <!colsapn=columnxu列(橫的)>
+    <tr style="color:chartreuse">
+        <th >Nmae</th> 
+        <th colspan="2">Telephone</th> <!colsapn=columnxu列(直的) span=跨度,另一種是rowsapn行(橫的)>
+    </tr>
+    <tr style="color:chartreuse">
+        <td>Jill</td> 
+        <td>87878787</td>
+        <td>78787878</td>
+    </tr>
+</table> 
+<br>
+<table style="width:100%"> <!rowsapn行(橫的)>
+    <tr style="color:brown">
+        <th >Nmae</th>
+        <td >ray</td>
+    </tr>
+    <tr style="color:brown">
+        <th rowspan="2">Telephone</th> <!rowsapn行(橫的)>
+        <td >87878787</td>
+    </tr>
+    <tr>
+        <td>78787878</td>
+    </tr>
+</table> 
+<br>
+<table style="width:100%">
+    <caption> Monthly savings</caption><!caption tag>
+    <tr style="color:blueviolet">
+        <th >Month</th> 
+        <th>savings</th>
+    </tr>
+    <tr style="color:blueviolet">
+        <td>January</td>
+        <td>$100</td>
+    </tr>
+    <tr style="color:blueviolet">
+        <td>February</td>
+        <td>$900</td>
+    </tr>
+</table> 
+<br>
+<table id="t01"> <!id的運用 在stycle css中>
+    <caption> Monthly savings</caption><!caption tag>
+    <tr style="color:blueviolet">
+        <th >Month</th> 
+        <th>savings</th>
+    </tr>
+    <tr style="color:blueviolet">
+        <td>January</td>
+        <td>$100</td>
+    </tr>
+    <tr style="color:blueviolet">
+        <td>February</td>
+        <td>$900</td>
+    </tr>
+</table> 
+<br>
+<table style="width:100%"> <!頁面寬度的100%>
+    <colgroup>  <!colgroup>
+      <col span="2" style="background-color:darkslategray">
+      <col style="background-color:darkgreen">
+    </colgroup>
+    <tr style="color:red"><! 1行1個 tr tag>
+        <th >Firstname</th> <! th define table header>
+        <th>Lastname</th>
+        <th>score</th>
+    </tr>
+    <tr style="color:red">
+        <td>Jill</td> <!td define table data/cell>
+        <td>smith</td>
+        <td>80</td>
+    </tr>
+    <tr style="color:red">
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>75</td>
+    </tr>
+</table>
+<!HTML Table////////////////////////////////////////////////////////////////////////////////////>
+<button> click me </button>  <! button tag > 
+
+<ul> <! unorder list >
+    <li>coffee</li> 
+    <li>tea</li>
+    <li>milk</li>
+</ul>
+<ol> <! order 有1,2,3 >
+    <li>coffee</li>
+    <li>tea</li>
+    <li>milk</li>    
+</ol>
+
+<!color///////////////////////////////////////////////////////////////////////////////////////>
+<p style="color: aqua"> Aqua </p> 
+<p style="background-color:seagreen"> seagreen </p>
+<h1 style="border:2px solid purple"> purple = rgb (, , , )</h1>
+<h1 style="background-color:rgba(255,99,71,0.5) ">rgba(255,99,71,0.5) </h1>
+<!color///////////////////////////////////////////////////////////////////////////////////////>
+
+</body>
+</html>
+>>>>>>> 8f185eb9fb816cb4de58b344f1815279781a4d93
