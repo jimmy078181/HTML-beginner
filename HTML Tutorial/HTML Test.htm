@@ -1,13 +1,25 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en-US">  <!lang="" ,means language declaration >
 
-<head>
- <title> MY First HTML</title>
- <meta charset="UTF-8">
+<head> <!data about data>
+<! tag describe metadata: title,style,meta,script,base>
+
+ <title> MY First HTML</title> 
+ <!defines a title in the browser tab,
+ provides a title for the page when it is added to favorites,
+ displays a title for the page in search engine results>
+
+ <meta charset="UTF-8"><!Define the character set used:>
+ <meta name="description" content="Free Web tutorials"><!Define a description of your web page:>
+ <meta name="keywords" content="HTML, CSS, XML, JavaScript"><!Define keywords for search engines:>
+ <meta name="author" content="John Doe"><!Define the author of a page:>
+ <meta http-equiv="refresh" content="30"><!Refresh document every 30 seconds:>
+
  <!link rel="stylesheet" href="style.css">  
  <!external CSS IMPORT!,rel = 和href連接的檔案是什麼關係,如果沒有放在網路上https:,在相同的folder>
- <style> /*Internal  CSS 區*/
+
+ <!style element is used to define style information for a single HTML page:>
+ <style> /*Internal  CSS 區*/ 
         .city{ /*class*/
             background-color:tomato;
             color:white;
@@ -74,6 +86,8 @@
         ul#Ul01 li a:hover{ 
             background-color:#111111;      
         }
+
+        
  </style>  
 <! above  style is Internal css>
 <! max-width:100% 可以確保圖像不會超越父容器寬度>
@@ -360,14 +374,15 @@ Example.com<br>
 
 <!HTML Class///////////////////////////////////////////////////////////////////////////////////////>
 <h2 class="city main">London</h2> <!class attribute in CSS,可以同時有2個class> 
-<p>London is ~ </p>
-
+<p class = "aaaaa">London is ~ </p>
+<p class = "aaaaa">paris is ~ </p>
 <button onclick="myFunction()">Hide elements</button>
 <script> /*class attritube in javaScript*/
+
 function myFunction() {
-    var x = document.getElementsByClassName("city");
+    var x = document.getElementsByClassName("aaaaa");
     for (var i = 0; i < x.length;i++){
-        x[i].style.dispaly = "none" ;
+        x[i].style.display = "none" ;
     }
 }
 </script>
@@ -402,9 +417,52 @@ function myFunction() {
 <!HTML Iframes///////////////////////////////////////////////////////////////////////////////////////>
 
 <!HTML javascript///////////////////////////////////////////////////////////////////////////////////////>
-<button type="button" onclick="document.getElementById('demo').innerHTML = Date()">
-    click me to display Date and Time </button>
-<p id ="demo"></p> 
+<p id ="demo"></p>
+<button type="button" onclick="document.getElementById('demo').innerHTML = Date()">click me to display Date and Time </button>
+ 
+<button type="button" onclick="myFunctionToidHello()">click me to change p</button>
+<p id="demo2_1">2-1</p><!id 必須為唯一 ,設2個相同的id從根本上是不好的>
+<script> /*省略var的 變數為全域變數*/
+function myFunctionToidHello(){    /*script to change attribute*/
+    document.getElementById("demo2_1").innerHTML = "Have a nice day!";
+    document.getElementById("demo2_1").style.fontsize = "25px!";
+    document.getElementById("demo2_1").style.color = "red";
+    document.getElementById("demo2_1").style.backgroundColor = "yellow";
+}
+</script>
+
+<script>
+function changeimg(sw){  /*script to change img*/
+    var pic;
+    if (sw == 0){
+    pic = "w3schools.jpg"
+    } 
+    else{
+        pic = "workplace.jpg" 
+    }
+    document.getElementById('myimg').src = pic ;
+}
+</script>
+<img id="myimg" src="chu.jpg" style="width:100;height:100" >
+<div>
+  <button type="button" onclick="changeimg(1)">change to w3schools</button>
+  <button type="button" onclick="changeimg(0)">change to workplace</button>
+</div>
+
+<noscript>sorry ,your bowser does not support javascript</noscript><!the brower doesn't support script>
 <!HTML javascript///////////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML File Path///////////////////////////////////////////////////////////////////////////////////////>
+<img src="default.asp" style="width:100;height:100" >  <!picture.jpg is located in same folder as the current page>
+<img src="picture/Kaguya.jpg"style="width:100;height:100" >  <!picture.jpg is located in picture folder in the current folder>
+<img src="../picture2/chu.jpg "style="width:100;height:100" >  <!picture.jpg is located in picture2 folder at the root of current web>
+<img src="../saber.png"style="width:100;height:100" >  <!picture.jpg is located in the folder one level up from current web>
+
+<img src="https://www.w3schools.com/images/picture.jpg" alt="Mountain" style="width:100;height:100"><!An absolute file path is the full URL to an internet file>
+<img src="/images/picture.jpg" alt="Mountain"style="width:100;height:100"><!the file path points to a file in the images folder located at the root of the current web:>
+
+<!HTML File Path///////////////////////////////////////////////////////////////////////////////////////>
+
+
 </body>
 </html>
