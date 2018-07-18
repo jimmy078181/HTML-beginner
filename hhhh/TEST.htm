@@ -375,8 +375,36 @@ function myFunction() {
 
 <!HTML id///////////////////////////////////////////////////////////////////////////////////////>
 <h1 id="myheader"> id attribute in css</h1><!用#id 在css中>
+<!An HTML element can only have one unique id belongs to the single element>
+<!while a class name can be used by multiple similar element> 
+<h2 id="tempid"> temp id for javascript</h2>
+<button onclick="displayResult()">change text</button> <!id in javascript>
+<script>
+  function displayResult(){
+    document.getElementById("myheader").innerHTML = "Have a nice day!";
+  }
+</script>
+
+<h2 id="C4" >C4</h2>
+<a href="#C4">JUMP</a> <! href="html_demo.html#4跳到那一頁的c4"
 <!HTML id///////////////////////////////////////////////////////////////////////////////////////>
+<br>
+<!HTML Iframes///////////////////////////////////////////////////////////////////////////////////////>
+<iframe src="demo_iframe.htm" height="200" width="ˇ300"></iframe>
+<iframe src="demo_iframe.htm" style="height:200px ;width:300px"></iframe> <!css style>
+<iframe src="demo_iframe.htm" style="height:200px ;width:300px;border: none;"></iframe> <!remove border>
+<iframe src="demo_iframe.htm" style="height:200px ;width:300px;border: 2px solid red;"></iframe> <!change border>
 
+<iframe src="demo_iframe.htm" style="height:300px ;width:100%;" name="iframe_a"></iframe> <!target fot link>
+<p><a href="https://www.google.com" target="iframe_a">google!!</a></p> <!在指定的框中,開啟網站>
 
+<iframe src="https://www.google.com" style="height:200px ;width:300px"></iframe> <!也可以直接指定網站>
+<!HTML Iframes///////////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML javascript///////////////////////////////////////////////////////////////////////////////////////>
+<button type="button" onclick="document.getElementById('demo').innerHTML = Date()">
+    click me to display Date and Time </button>
+<p id ="demo"></p> 
+<!HTML javascript///////////////////////////////////////////////////////////////////////////////////////>
 </body>
 </html>
