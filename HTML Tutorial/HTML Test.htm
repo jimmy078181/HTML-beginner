@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<!在HTML5中,標籤html,body,head可以被省略,只有DOCtye html 標籤就可以運作,但是建議或許可以刪去的只有head標籤>
+
 <html lang="en-US">  <!lang="" ,means language declaration >
 
 <head> <!data about data>
@@ -15,11 +18,51 @@
  <meta name="author" content="John Doe"><!Define the author of a page:>
  <meta http-equiv="refresh" content="30"><!Refresh document every 30 seconds:>
 
+ <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalabe=no"><!rwd``使螢幕寬度=裝置寬度,防止使用者縮放>
+
  <!link rel="stylesheet" href="style.css">  
  <!external CSS IMPORT!,rel = 和href連接的檔案是什麼關係,如果沒有放在網路上https:,在相同的folder>
 
+<!base href="https://www.google.com/images/" target="_balnk">        
+<!element specifies the base URL and base target for all relative URLs in a page:>    
+<!所有的相對路徑都會去base的url下找>
+
+ <script>
+     function justscripttest(){
+         document.getElementById("test").innerHTML="test javascript";
+     }
+ </script>
+
  <!style element is used to define style information for a single HTML page:>
  <style> /*Internal  CSS 區*/ 
+
+
+        .headtitle{
+          background-color:#666;
+          padding :10px;
+        }
+
+        .leftplace{
+          background-color:#666;
+          float:left;
+          padding :10px;
+        }
+        .midplace{
+          background-color:#666;
+          float:left;
+          padding :10px;
+        }
+        .rightplace{
+          background-color:#666;
+          float:left;
+          padding :10px;
+        }
+        .footplace{
+          background-color:#666;
+          
+          padding :10px;
+        }
+
         .city{ /*class*/
             background-color:tomato;
             color:white;
@@ -42,9 +85,9 @@
         a:link{color:green; background-color: transparent;text-decoration: none}
         a:visited{color:pink; background-color: transparent;text-decoration: none} /*點過便粉紅色*/
         a:hover{color:red; background-color: transparent;text-decoration: underline} /*滑鼠在上面的顏色,還有底線*/
-        img{ width: 100% ;
+        /*img{ width: 100% ;
              height:none;
-        }
+        }*/
         table, th, td {border:1px solid black;
                        border-collapse:collapse /*1條線的框*/
         } 
@@ -86,8 +129,84 @@
         ul#Ul01 li a:hover{ 
             background-color:#111111;      
         }
-
         
+        /* Style the header */
+        header {
+          background-color: #666;
+          padding: 30px;
+          text-align: center;
+          font-size: 35px;
+          color: white;
+        }
+        /* Create two columns/boxes that floats next to each other */
+        nav {
+          float: left;
+          width: 30%;
+         /* height: 300px;  only for demonstration, should be removed */
+          background: #ccc;
+          padding: 30px;
+        }
+        /* Style the list inside the menu */
+        nav ul {
+        list-style-type: none;
+        padding: 0;
+        }
+        article {
+          float: left;
+          padding: 20px;
+          width: 70%;
+          background-color: #f1f1f1;
+         /*height: 300px; only for demonstration, should be removed */
+        }
+        /* Clear floats after the columns */
+        section:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        /* Style the footer */ 
+        footer {
+          background-color: #777;
+          padding: 10px;
+          text-align: center;
+          color: white;
+        }
+
+        .left {
+  background-color:#2196F3;
+  
+  float:left;
+  width:20%; /* The width is 20%, by default */
+}
+
+.main {
+  background-color:#f1f1f1;
+  
+  float:left;
+  width:60%; /* The width is 60%, by default */
+}
+
+.right {
+  background-color:#4CAF50;
+ 
+  float:left;
+  width:20%; /* The width is 20%, by default */
+}
+
+/* Use a media query to add a break point at 800px: */
+@media screen and (max-width:800px) {
+  .left, .main, .right {
+    width:100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
+        /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+        @media (max-width: 600px) {
+          nav, article {
+            width: 100%;
+            height: auto;
+          }
+        }
+
  </style>  
 <! above  style is Internal css>
 <! max-width:100% 可以確保圖像不會超越父容器寬度>
@@ -463,6 +582,209 @@ function changeimg(sw){  /*script to change img*/
 
 <!HTML File Path///////////////////////////////////////////////////////////////////////////////////////>
 
+<!HTML Layout///////////////////////////////////////////////////////////////////////////////////////>
+<!HTML5 offers new semantic elements that define the different parts of a web page:>
 
+<header> - Defines a header for a document or a section</header> 
+<nav> - Defines a container for navigation links</nav>
+<section> - Defines a section in a document</section>
+<article> - Defines an independent self-contained article</article>
+<aside> - Defines content aside from the content (like a sidebar) </aside>
+<footer> - Defines a footer for a document or a section</footer><!页脚通常包含文档的作者、版权信息、使用条款链接、联系信息等等。>
+<details> - Defines additional details</details>
+<summary> - Defines a heading for the details element </summary>
+<!"table" element :The purpose of the "table" element is to display tabular data,Do NOT use tables for your page layout!>
+
+<h2>CSS Layout Float</h2>
+<p>In this example, we have created a header, two columns/boxes and a footer. On smaller screens, the columns will stack on top of each other.</p>
+<p>Resize the browser window to see the responsive effect (you will learn more about this in our next chapter - HTML Responsive.)</p>
+
+<header>
+  <h2>Cities</h2>
+</header>
+
+<section>
+  <nav>
+    <ul>
+      <li><a href="#">London</a></li>
+      <li><a href="#">Paris</a></li>
+      <li><a href="#">Tokyo</a></li>
+    </ul>
+  </nav>
+  
+  <article>
+    <h1>London</h1>
+    <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Footer</p>
+</footer>
+<!HTML Layout///////////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML RWD///////////////////////////////////////////////////////////////////////////////////////>
+<img src="w3schools.jpg" style="width:100%;height:auto;"> 
+<img src="w3schools.jpg" style="max-width:100%;height:auto;"> 
+<!If the max-width property is set to 100%, the image will scale down if it has to, but never scale up to be larger than its original size:>
+
+<h2>Show Different Images Depending on Browser Width</h2>
+<p>Resize the browser width and the image will change at 600px and 1500px.</p>
+
+<picture>
+  <source srcset="img_smallflower.jpg" media="(max-width: 600px)"><!最大寬度600以下用這個>
+  <source srcset="img_flowers.jpg" media="(max-width: 1500px)"><!600~1500>
+  <source srcset="flowers.jpg">
+  <img src="img_flowers.jpg" alt="Flowers" style="width:auto;">
+</picture>
+
+<h1 style="font-size:10vw;">Responsive Text</h1>
+<!字體大小為viewport的10%,Viewport is the browser window size. 1vw = 1% of viewport width. If the viewport is 50cm wide, 1vw is 0.5cm.>
+<p style="font-size:5vw;">Resize the browser window to see how the text size scales.</p>
+<p style="font-size:5vw;">Use the "vw" unit when sizing the text. 10vw will set the size to 10% of the viewport width.</p>
+<p>Viewport is the browser window size. 1vw = 1% of viewport width. If the viewport is 50cm wide, 1vw is 0.5cm.</p>
+
+<p>Make sure you reach the breakpoint at 800px when resizing this frame.</p> <!Media Queries>
+<div class="left">
+  <p>Left Menu</p>
+</div>
+<div class="main">
+  <p>Main Content</p>
+</div>
+<div class="right">
+  <p>Right Content</p>
+</div>
+
+<!HTML RWD///////////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML Computer Code Elements///////////////////////////////////////////////////////////////////////////////////////>
+
+<kbd>Ctrl + S</kbd>
+<!tThe HTML kbd element represents user input, like keyboard input or voice commands.default monospace font>
+<samp>Error!</samp>
+<!<samp element represents output from a program or computing system.default monospace font>
+<code><!HTML <code element defines a fragment of computer code.default monospace font  >
+    x = 5;
+    y = 6;
+    z = x + y;
+</code>   
+
+<var>E</var> = <var>mc</var><sup>2</sup>.  <!<var element defines a variable.>
+
+<!HTML Computer Code Elements///////////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML  form///////////////////////////////////////////////////////////////////////////////////////>
+<h2>Text Input</h2>
+<form> 
+  First name:<br>
+  <input type="text" name="firstname"> <!<input type="text" defines a one-line input field for text input:>
+  <br>
+  Last name:<br>
+  <input type="text" name="lastname"> <!Each input field must have a name attribute to be submitted.>
+</form>
+<p>Note that the form itself is not visible.</p>
+<p>Also note that the default width of a text input field is 20 characters.</p>
+<br> 
+
+<h2>Radio Buttons</h2>
+<form>
+  <input type="radio" name="gender" value="male" checked> Male<br> <!radio>
+  <input type="radio" name="gender" value="female"> Female<br>
+  <input type="radio" name="gender" value="other"> Other  
+</form> 
+
+<h2>HTML Forms</h2>
+<form action="/action_page.php" target="_blank" method="GET">  <!action attribute defines the action to be performed when the form is "submitted".>
+  <!If the action attribute is omitted, the action is set to the current page.>
+  <!method :Specifies the HTTP method used when submitting the form,GET is used, the submitted form data will be visible in the page address field:,he POST method does not display the submitted form data in the page address field.>
+  First name:<br>
+  <input type="text" name="firstname" value="Mickey">
+  <br>
+  Last name:<br>
+  <input type="text" name="lastname" value="Mouse">
+  <br><br>
+  <input type="submit" value="Submit">
+  <!<input type="submit" defines a button for submitting the form data to a form-handler.>
+</form> 
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+<form action="/action_page.php">
+    <fieldset> <!邊框>
+      <legend>Personal information:</legend> <!form的說明 在邊框上>
+      First name:<br>
+      <input type="text" name="firstname" value="Mickey"><br>
+      Last name:<br>
+      <input type="text" name="lastname" value="Mouse"><br><br>
+      <input type="submit" value="Submit">
+    </fieldset>
+  </form>
+
+  <h2>The select Element</h2>
+  <p>The select element defines a drop-down list:</p>
+  <form action="/action_page.php">
+    <select name="cars"> <!<select element defines a drop-down list:>
+      <option value="volvo">Volvo</option> <!<option elements defines an option that can be selected.>
+      <option value="saab">Saab</option>
+      <option value="fiat" selected>Fiat</option>
+      <option value="Audi">Audi</option>
+      
+    </select>
+    <br><br>
+    <input type="submit">
+  </form>
+
+  <form action="/action_page.php">
+    <select name="cars" size="3" multiple> <!<size:一次呈現幾個,可以下滑,multiple:可以一次選多個,要案住ctrl>
+      <option value="volvo">Volvo</option> <!<option elements defines an option that can be selected.>
+      <option value="saab">Saab</option>
+      <option value="fiat">Fiat</option>
+      <option value="Audi">Audi</option>  
+    </select>
+    <br><br>
+    <input type="submit">
+
+    <h2>Textarea</h2>
+    <p>The textarea element defines a multi-line input field.</p>
+    <form action="/action_page.php"> <!textarea!!!!一段訊息>
+      <textarea name="message" rows="10" cols="30">The cat was playing in the garden.</textarea>
+      <br><!css style is ok ~ style="width:10px;height:10px;">
+      <input type="submit">
+    </form>
+    <br><br>
+
+
+    <button type="button" onclick="alert('Hello World!')">Click Me!</button> <!彈出式的提醒>
+    <! Always specify the type attribute for the button element>
+
+    <form action="/action_page.php">
+        <input list="browsers" name="browser">
+        <datalist id="browsers"><!id 和input的要一樣,>
+          <option value="Internet Explorer">
+          <option value="Firefox">
+          <option value="Chrome">
+          <option value="Opera">
+          <option value="Safari">
+        </datalist>
+        <input type="submit">
+      </form>
+      
+      <p><b>Note:</b> The datalist tag is not supported in Safari or IE9 (and earlier).</p>
+
+
+      <form action="/action_page.php"
+      oninput="x.value=parseInt(a.value)+parseInt(b.value)"> <!重要>
+        0
+        <input type="range" id="a" name="a" value="50"> <!滑桿>
+        100 +
+        <input type="number" id="b" name="b" value="50">
+        =
+        <output name="x" for="a b"></output><!重要>
+        0
+        <br><br>
+        <input type="submit">
+      </form>
+
+<!HTML  form///////////////////////////////////////////////////////////////////////////////////////>
 </body>
 </html>
