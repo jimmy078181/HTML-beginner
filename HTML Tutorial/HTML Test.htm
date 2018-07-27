@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+
+<!在HTML5中,標籤html,body,head可以被省略,只有DOCtye html 標籤就可以運作,但是建議或許可以刪去的只有head標籤>
+
+<html lang="en-US">  <!lang="" ,means language declaration >
+
+<head> <!data about data>
+<! tag describe metadata: title,style,meta,script,base>
+
+ <title> MY First HTML</title> 
+ <!defines a title in the browser tab,
+ provides a title for the page when it is added to favorites,
+ displays a title for the page in search engine results>
+
+ <meta charset="UTF-8"><!Define the character set used:>
+ <meta name="description" content="Free Web tutorials"><!Define a description of your web page:>
+ <meta name="keywords" content="HTML, CSS, XML, JavaScript"><!Define keywords for search engines:>
+ <meta name="author" content="John Doe"><!Define the author of a page:>
+ <meta http-equiv="refresh" content="30"><!Refresh document every 30 seconds:>
+
+ <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalabe=no"><!rwd``使螢幕寬度=裝置寬度,防止使用者縮放>
+
+ <!link rel="stylesheet" href="style.css">  
+ <!external CSS IMPORT!,rel = 和href連接的檔案是什麼關係,如果沒有放在網路上https:,在相同的folder>
+
+<!base href="https://www.google.com/images/" target="_balnk">        
+<!element specifies the base URL and base target for all relative URLs in a page:>    
+<!所有的相對路徑都會去base的url下找>
+
+ <script>
+     function justscripttest(){
+         document.getElementById("test").innerHTML="test javascript";
+     }
+ </script>
+
+ <!style element is used to define style information for a single HTML page:>
+ <style> /*Internal  CSS 區*/ 
+
+
+        .headtitle{
+          background-color:#666;
+          padding :10px;
+        }
+
+        .leftplace{
+          background-color:#666;
+          float:left;
+          padding :10px;
+        }
+        .midplace{
+          background-color:#666;
+          float:left;
+          padding :10px;
+        }
+        .rightplace{
+          background-color:#666;
+          float:left;
+          padding :10px;
+        }
+        .footplace{
+          background-color:#666;
+          
+          padding :10px;
+        }
+
+        .city{ /*class*/
+            background-color:tomato;
+            color:white;
+            padding:10px;
+        }
+        .main{/*class*/
+            text-align:center;
+        }
+        #myheader{
+            background-color: lightblue;
+            color:black;
+            padding:40px;
+            text-align: center ;
+        }
+            
+        #p01 { color: darkblue;} 
+        body {background-color: cornflowerblue}  
+        h6   {color: chocolate} 
+        p.error{ color: darkmagenta}
+        a:link{color:green; background-color: transparent;text-decoration: none}
+        a:visited{color:pink; background-color: transparent;text-decoration: none} /*點過便粉紅色*/
+        a:hover{color:red; background-color: transparent;text-decoration: underline} /*滑鼠在上面的顏色,還有底線*/
+        /*img{ width: 100% ;
+             height:none;
+        }*/
+        table, th, td {border:1px solid black;
+                       border-collapse:collapse /*1條線的框*/
+        } 
+        th,td{ padding:15px} 
+        th{ text-align:left}  /*置左*/
+        table{
+            border-spacing: 5px; /*if table has collapsed border, border-spacing has no effect*/
+        }
+        table#t01 th{
+            width:100%;
+            background-color:chocolate; 
+        }
+        table#t01 tr:nth-child(even){
+            
+            background-color:#eee; 
+        }
+        table#t01 tr:nth-child(odd){
+            
+            background-color:dimgray; 
+        }
+        ul#Ul01{
+            list-style-type: none;
+            margin:0;
+            padding:0;
+            overflow: hidden;
+            background-color:#333333;
+        }
+        ul#Ul01 li{
+            float:left;/*display horizontally  float:inline*/ 
+            
+        }
+        ul#Ul01 li a{ 
+            display:block;
+            color:white;
+            text-align:center;
+            padding:16px;
+            text-decoration:none;
+        }
+        ul#Ul01 li a:hover{ 
+            background-color:#111111;      
+        }
+        
+        /* Style the header */
+        header {
+          background-color: #666;
+          padding: 30px;
+          text-align: center;
+          font-size: 35px;
+          color: white;
+        }
+        /* Create two columns/boxes that floats next to each other */
+        nav {
+          float: left;
+          width: 30%;
+         /* height: 300px;  only for demonstration, should be removed */
+          background: #ccc;
+          padding: 30px;
+        }
+        /* Style the list inside the menu */
+        nav ul {
+        list-style-type: none;
+        padding: 0;
+        }
+        article {
+          float: left;
+          padding: 20px;
+          width: 70%;
+          background-color: #f1f1f1;
+         /*height: 300px; only for demonstration, should be removed */
+        }
+        /* Clear floats after the columns */
+        section:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        /* Style the footer */ 
+        footer {
+          background-color: #777;
+          padding: 10px;
+          text-align: center;
+          color: white;
+        }
+
+        .left {
+  background-color:#2196F3;
+  
+  float:left;
+  width:20%; /* The width is 20%, by default */
+}
+
+.main {
+  background-color:#f1f1f1;
+  
+  float:left;
+  width:60%; /* The width is 60%, by default */
+}
+
+.right {
+  background-color:#4CAF50;
+ 
+  float:left;
+  width:20%; /* The width is 20%, by default */
+}
+
+/* Use a media query to add a break point at 800px: */
+@media screen and (max-width:800px) {
+  .left, .main, .right {
+    width:100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
+        /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+        @media (max-width: 600px) {
+          nav, article {
+            width: 100%;
+            height: auto;
+          }
+        }
+
+ </style>  
+<! above  style is Internal css>
+<! max-width:100% 可以確保圖像不會超越父容器寬度>
+
+<!metadata is not displayed,define document title,style,link,scripts>
+</head>
+
+<body>
+<!body style="background-color:powderblue>    
+<!body style="background-image: url('picture/真德.png')">
+
+<h1> my first heading</h1>  <! haeding tag , style:font-size,text-align,font-family,color>
+<h2 title="I'm a header" style="font-size: 60px"> my second heading</h2> <! tag can be h1~h6 > 
+<! Browsers automatically add some white space berfore and after a heading> 
+<hr> <!horizontal>
+
+<p class="error"> i am p.error</p>
+<p id = "p01"> i am p01</p>
+<p> my first paragraph.</p> <! paragraph tag & 會換2行,多的space不會列入計算,行數依螢幕大小決定 >
+<p style="color: red" title="I'm a tooltip" > my second paragraph</p> <!style:font-size,text-align,font-family,color > 
+<p><font face="verdana" color="green" style="font-size: 150%"> this is font </font></p> 
+<p style="font-family: 'Courier New', Courier, monospace;"> this is second font </p> <!字型>
+<p style="font-size: 150%" > 150%!!!!</p><!大小>
+<p style="text-align: center;"> center paragraph</p><!置中>
+<p><strong>Note:</strong> the font element is not supported in HTML5. Use CSS instead </p>
+<!strong means important text > 
+<p><b>this text is bold </b></p><!bold>
+<p><i> this text is italic </i></p> <!italic>
+<p><em>this text is emphasized</em></p><!emphasized = important>
+<p>this text is <small>smaller</small>text</p> <!smaller text >
+<p>this text is <mark>marked</mark> text</p> <!marked text >
+<p>my favorite color is <del>blue</del> red</p><!delete>
+<p>my favorite color is <ins>blue</ins></p><!底線>
+<p>this text is <sub>subscriipted</sub> text</p> <!字向下沉 >
+<p>this text is <sup>superscriipted</sup> text</p> <!字向上浮 >
+
+<font color="green"> this is third font </font>
+<!Browsers automatically add some white space berfore and after a paragraph> 
+<!In Html spaces and new line are ignored >
+<br><! line break 會換一行 strict validation :end have <br/ >
+
+
+<pre>
+    MY name is jimmy.
+    Nice to meet you.
+</pre><! pre tag can preserves both spaces and lines,usually courier >
+
+<!HTML quotation////////////////////////////////////////////////////////////////////////////////>
+<p>my goal is to :<q>Sleep all day.</q></p> <!quotation >
+<blockquote cite="http://www.youtube.com">my goal is to sleep all day</blockquote> <!><!a section that is quoted from another source,前面會空白>
+<p>The<abbr title="World Health Organization">WHO</abbr> was found in 1948.</p>
+<p><cite>The scream</cite> by chuchu</p><!define the title of a work,usually us italic>
+<bdo dir="rtl">This twxt will be written from right to left</bdo> <!bi-direction override>
+<address><!contact information,usually displayed in italic>
+Written by John Doe.<br>
+Vist us at:<br>
+Example.com<br>
+</address>
+<!HTML quotation////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML Link/////////////////////////////////////////////////////////////////////////////////////>
+<a href="https://www.w3schools.com" title="Go to w3schools" target="_blank"> This is a link</a> 
+<! link tag: href is the attribute of tag <a,absolute URL>
+<!_blank:open in new window,_self:open in same window,_parent:open in parent frame,_top:open in full body of the window,framename:open in named frame >
+<a href="html_images.asp" target="_blank"> HTML Images</a> 
+<!Loca link:ralative URL(same web site)>
+<a href="https://www.w3schools.com" target="_blank">  <!use image as link>
+    <img src="default.asp" alt="HTNL toutorialaaa" style="width: 42px;height:42px;border:0">
+    <!border:0 to prevent IE9(and earlier) from displaying a border around the image,when img is a link > 
+</a>
+<h2 id="C4"> Chapter 4</h2> <! add bookmark:直接跳到那部分><!anchor link how to smooth srcoll>
+<a href="#C4">Jump to Chapter 4</a> <!也可以寫: href="html_demo.html#C4 ">
+<a href="https://www.w3schools.com/html/default.asp">HTML tutorial</a>
+<!寫href="/html/default.asp":the link is in the html folder on the current web site>
+<!寫href="default.asp":the link is located in the same folder on the current page>
+
+<br> <!empty tag ,don't need end tag>
+<!HTML Link////////////////////////////////////////////////////////////////////////////////////>
+<!margin:space outside the border,padding:space inside the border>
+
+
+<!HTML IMage////////////////////////////////////////////////////////////////////////////////////>
+<img src="w3schools.jpg" alt="w3shools.com" width="104" height="142">
+ <!width&height are defined in pixels,but the stylesheet will override it>
+<img src="w3schools.jpg" alt="w3shools.com" style="width:104px; height:142px">
+<!stylesheet 不會 override style width height>
+<img src="picture/NieR.jpg" alt="NIER" style="width:128px; height:128px"><!html allow GIFs  >
+<img src="https://www.w3schools.com/images/gennn.jpg/" alt="green"><!access images from any web address>
+<! src: address,alt:if img don't display alt will display >
+<p style="background-image: url(w3schools.jpg)"><img src="chu.jpg" alt="chu" style="float:right;width:100px;height: 100px">the picture is on the right of paragraph</p>
+<p><img src="chu.jpg" alt="chu" style="float:left;width:100px;height: 100px">the picture is on the left of paragraph</p><!float>
+<!image map >
+<img src="workplace.jpg" alt="workplace" style="width:250px;height:250px"usemap="#workmap" >
+<map name ="workmap" >
+    <area shape="rect" coords="0,0,50,50" alt="computer" href="https://www.google.com" target="_blank">
+    <area shape="rect" coords="0,200,50,250" alt="computer" href="https://www.google.com" target="blank">
+    <area shape="circle" coords="52,52,50" alt="computer" href="https://www.google.com" target="blank">
+</map>
+<!corrds:做標>
+<picture>
+    <source media="(min-width:650px)" srcset="picture/NieR-1.jpg"><!先從第一個source開始看,size不合在往下,最後img必須設定,怕browser沒有支援picture>
+    <source media="(min-width:450px)" srcset="picture/NieR-2.jpg"><!?畫面解析度小於650px的話用第一個,否則第二個,都不符合用img>
+    <img src="picture/saber.png" alt="default" style="width: auto">
+</picture>
+<!HTML IMage////////////////////////////////////////////////////////////////////////////////////>
+<br>
+<!HTML Table////////////////////////////////////////////////////////////////////////////////////>
+<table style="width:100%"> <!頁面寬度的100%>
+    <tr style="color:red"><! 1行1個 tr tag>
+        <th >Firstname</th> <! th define table header>
+        <th>Lastname</th>
+        <th>score</th>
+    </tr>
+    <tr style="color:red">
+        <td>Jill</td> <!td define table data/cell>
+        <td>smith</td>
+        <td>80</td>
+    </tr>
+    <tr style="background-color:red ;color:white">
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>75</td>
+    </tr>
+
+</table> <!如果要邊框 要用CSS Border 去上面style看>
+<br>
+<table style="width:100%"> <!colsapn=columnxu列(橫的)>
+    <tr style="color:chartreuse">
+        <th >Nmae</th> 
+        <th colspan="2">Telephone</th> <!colsapn=columnxu列(直的) span=跨度,另一種是rowsapn行(橫的)>
+    </tr>
+    <tr style="color:chartreuse">
+        <td>Jill</td> 
+        <td>87878787</td>
+        <td>78787878</td>
+    </tr>
+</table> 
+<br>
+<table style="width:100%"> <!rowsapn行(橫的)>
+    <tr style="color:brown">
+        <th >Nmae</th>
+        <td >ray</td>
+    </tr>
+    <tr style="color:brown">
+        <th rowspan="2">Telephone</th> <!rowsapn行(橫的)>
+        <td >87878787</td>
+    </tr>
+    <tr>
+        <td>78787878</td>
+    </tr>
+</table> 
+<br>
+<table style="width:100%">
+    <caption> Monthly savings</caption><!caption tag>
+    <tr style="color:blueviolet">
+        <th >Month</th> 
+        <th>savings</th>
+    </tr>
+    <tr style="color:blueviolet">
+        <td>January</td>
+        <td>$100</td>
+    </tr>
+    <tr style="color:blueviolet">
+        <td>February</td>
+        <td>$900</td>
+    </tr>
+</table> 
+<br>
+<table id="t01"> <!id的運用 在stycle css中>
+    <caption> Monthly savings</caption><!caption tag>
+    <tr style="color:blueviolet">
+        <th >Month</th> 
+        <th>savings</th>
+    </tr>
+    <tr style="color:blueviolet">
+        <td>January</td>
+        <td>$100</td>
+    </tr>
+    <tr style="color:blueviolet">
+        <td>February</td>
+        <td>$900</td>
+    </tr>
+</table> 
+<br>
+<table style="width:100%"> <!頁面寬度的100%>
+    <colgroup>  <!colgroup>
+      <col span="2" style="background-color:darkslategray">
+      <col style="background-color:darkgreen">
+    </colgroup>
+    <tr style="color:red"><! 1行1個 tr tag>
+        <th >Firstname</th> <! th define table header>
+        <th>Lastname</th>
+        <th>score</th>
+    </tr>
+    <tr style="color:red">
+        <td>Jill</td> <!td define table data/cell>
+        <td>smith</td>
+        <td>80</td>
+    </tr>
+    <tr style="color:red">
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>75</td>
+    </tr>
+</table>
+<!HTML Table////////////////////////////////////////////////////////////////////////////////////>
+<button> click me </button>  <! button tag > 
+<!HTML list////////////////////////////////////////////////////////////////////////////////////>
+<ul> <! unorder list >
+    <li>coffee</li> 
+    <li>tea</li>
+    <li>milk</li>
+</ul>
+<ul style="list-style-type: circle"> <! disc:default, circle:空心圓圈, square:正方型, none:什麼都沒有 >
+    <li>coffee</li> 
+    <li>tea</li>
+    <li>milk</li>
+</ul>
+<ol> <! order 有1,2,3 >
+    <li>coffee</li>
+    <li>tea</li>
+    <li>milk</li>    
+</ol>
+<ol type="A">
+<! "1":default, "A":Uppercase letters, "a":Lowercase letter, "I": Uppercase Roman Numbers, "i": Lowercase Roman Numbers >
+    <li>coffee</li>
+    <li>tea</li>
+    <li>milk</li>    
+</ol>
+<dl><!Description List ,有一個大項可以分很多個小項>
+    <dt>Coffee</dt>
+    <dd>- black hot drink</dd>
+    <dd>- American Coffee</dd>
+    <dt>Milk</dt>
+    <dd>- White cold drink</dd>
+</dl>
+<ul> <!list裡面包list細項,Nested list>
+    <li>Coffee</li>
+    <li>Tea
+      <ul>
+          <li>Black tea</li>
+          <li>Green Tea</li>
+      </ul>
+    </li>
+    <li>Milk</li>
+</ul>
+<ol type="I" start="50"> <! TYPE:I 從50開始算 >
+    <li>coffee</li>
+    <li>tea</li>
+    <li>milk</li>    
+</ol>
+<ul id="Ul01"><!use CSSto style the list horizontally, to create a navigation>
+  <li><a  herf="#home">Home</a></li>
+  <li><a  herf="#news">News</a></li>
+  <li><a  herf="#contact">Contact</a></li>
+  <li><a  herf="#about">About</a></li>
+</ul>
+<!HTML list////////////////////////////////////////////////////////////////////////////////////>
+
+
+<!color///////////////////////////////////////////////////////////////////////////////////////>
+<p style="color: aqua"> Aqua </p> 
+<p style="background-color:yellow;border: 2px red solid"> yellow </p>
+<h1 style="border:2px solid purple"> purple = rgb (, , , )</h1>
+<h1 style="background-color:rgba(255,99,71,0.5) ">rgba(255,99,71,0.5) </h1>
+<!color///////////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML Block-level Element///////////////////////////////////////////////////////////////////////////////////////>
+<!always starts on a new line and takes up the full wdith avaliable ex:p,div,article,ol,ul.....>
+<div>Hello</div> <!div element is often used as a container for other element,attributes:style,class,id are common>
+<div style="background-color: #111111;color:white;padding:20px">
+    <h2>London</h2>
+    <p>nice to mee you</p>
+</div>
+
+<!HTML Block-level Element///////////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML Inline Element///////////////////////////////////////////////////////////////////////////////////////>
+<!Inline element will not statr on new line ex:a,b,sapn,img...>
+<span>Hello</span><!span element is often used as a container for some text,attributes:style,class,id are common>
+<span>world</span>
+<h1>My<span style="color: violet">Important</span>Heading</h1>
+<!HTML Inline Element///////////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML Class///////////////////////////////////////////////////////////////////////////////////////>
+<h2 class="city main">London</h2> <!class attribute in CSS,可以同時有2個class> 
+<p class = "aaaaa">London is ~ </p>
+<p class = "aaaaa">paris is ~ </p>
+<button onclick="myFunction()">Hide elements</button>
+<script> /*class attritube in javaScript*/
+
+function myFunction() {
+    var x = document.getElementsByClassName("aaaaa");
+    for (var i = 0; i < x.length;i++){
+        x[i].style.display = "none" ;
+    }
+}
+</script>
+<!HTML Class///////////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML id///////////////////////////////////////////////////////////////////////////////////////>
+<h1 id="myheader"> id attribute in css</h1><!用#id 在css中>
+<!An HTML element can only have one unique id belongs to the single element>
+<!while a class name can be used by multiple similar element> 
+<h2 id="tempid"> temp id for javascript</h2>
+<button onclick="displayResult()">change text</button> <!id in javascript>
+<script>
+  function displayResult(){
+    document.getElementById("myheader").innerHTML = "Have a nice day!";
+  }
+</script>
+
+<h2 id="C4" >C4</h2>
+<a href="#C4">JUMP</a> <! href="html_demo.html#4跳到那一頁的c4"
+<!HTML id///////////////////////////////////////////////////////////////////////////////////////>
+<br>
+<!HTML Iframes///////////////////////////////////////////////////////////////////////////////////////>
+<iframe src="demo_iframe.htm" height="200" width="ˇ300"></iframe>
+<iframe src="demo_iframe.htm" style="height:200px ;width:300px"></iframe> <!css style>
+<iframe src="demo_iframe.htm" style="height:200px ;width:300px;border: none;"></iframe> <!remove border>
+<iframe src="demo_iframe.htm" style="height:200px ;width:300px;border: 2px solid red;"></iframe> <!change border>
+
+<iframe src="demo_iframe.htm" style="height:300px ;width:100%;" name="iframe_a"></iframe> <!target fot link>
+<p><a href="https://www.google.com" target="iframe_a">google!!</a></p> <!在指定的框中,開啟網站>
+
+<iframe src="https://www.google.com" style="height:200px ;width:300px"></iframe> <!也可以直接指定網站>
+<!HTML Iframes///////////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML javascript///////////////////////////////////////////////////////////////////////////////////////>
+<p id ="demo"></p>
+<button type="button" onclick="document.getElementById('demo').innerHTML = Date()">click me to display Date and Time </button>
+ 
+<button type="button" onclick="myFunctionToidHello()">click me to change p</button>
+<p id="demo2_1">2-1</p><!id 必須為唯一 ,設2個相同的id從根本上是不好的>
+<script> /*省略var的 變數為全域變數*/
+function myFunctionToidHello(){    /*script to change attribute*/
+    document.getElementById("demo2_1").innerHTML = "Have a nice day!";
+    document.getElementById("demo2_1").style.fontsize = "25px!";
+    document.getElementById("demo2_1").style.color = "red";
+    document.getElementById("demo2_1").style.backgroundColor = "yellow";
+}
+</script>
+
+<script>
+function changeimg(sw){  /*script to change img*/
+    var pic;
+    if (sw == 0){
+    pic = "w3schools.jpg"
+    } 
+    else{
+        pic = "workplace.jpg" 
+    }
+    document.getElementById('myimg').src = pic ;
+}
+</script>
+<img id="myimg" src="chu.jpg" style="width:100;height:100" >
+<div>
+  <button type="button" onclick="changeimg(1)">change to w3schools</button>
+  <button type="button" onclick="changeimg(0)">change to workplace</button>
+</div>
+
+<noscript>sorry ,your bowser does not support javascript</noscript><!the brower doesn't support script>
+<!HTML javascript///////////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML File Path///////////////////////////////////////////////////////////////////////////////////////>
+<img src="default.asp" style="width:100;height:100" >  <!picture.jpg is located in same folder as the current page>
+<img src="picture/Kaguya.jpg"style="width:100;height:100" >  <!picture.jpg is located in picture folder in the current folder>
+<img src="../picture2/chu.jpg "style="width:100;height:100" >  <!picture.jpg is located in picture2 folder at the root of current web>
+<img src="../saber.png"style="width:100;height:100" >  <!picture.jpg is located in the folder one level up from current web>
+
+<img src="https://www.w3schools.com/images/picture.jpg" alt="Mountain" style="width:100;height:100"><!An absolute file path is the full URL to an internet file>
+<img src="/images/picture.jpg" alt="Mountain"style="width:100;height:100"><!the file path points to a file in the images folder located at the root of the current web:>
+
+<!HTML File Path///////////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML Layout///////////////////////////////////////////////////////////////////////////////////////>
+<!HTML5 offers new semantic elements that define the different parts of a web page:>
+
+<header> - Defines a header for a document or a section</header> 
+<nav> - Defines a container for navigation links</nav>
+<section> - Defines a section in a document</section>
+<article> - Defines an independent self-contained article</article>
+<aside> - Defines content aside from the content (like a sidebar) </aside>
+<footer> - Defines a footer for a document or a section</footer><!页脚通常包含文档的作者、版权信息、使用条款链接、联系信息等等。>
+<details> - Defines additional details</details>
+<summary> - Defines a heading for the details element </summary>
+<!"table" element :The purpose of the "table" element is to display tabular data,Do NOT use tables for your page layout!>
+
+<h2>CSS Layout Float</h2>
+<p>In this example, we have created a header, two columns/boxes and a footer. On smaller screens, the columns will stack on top of each other.</p>
+<p>Resize the browser window to see the responsive effect (you will learn more about this in our next chapter - HTML Responsive.)</p>
+
+<header>
+  <h2>Cities</h2>
+</header>
+
+<section>
+  <nav>
+    <ul>
+      <li><a href="#">London</a></li>
+      <li><a href="#">Paris</a></li>
+      <li><a href="#">Tokyo</a></li>
+    </ul>
+  </nav>
+  
+  <article>
+    <h1>London</h1>
+    <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Footer</p>
+</footer>
+<!HTML Layout///////////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML RWD///////////////////////////////////////////////////////////////////////////////////////>
+<img src="w3schools.jpg" style="width:100%;height:auto;"> 
+<img src="w3schools.jpg" style="max-width:100%;height:auto;"> 
+<!If the max-width property is set to 100%, the image will scale down if it has to, but never scale up to be larger than its original size:>
+
+<h2>Show Different Images Depending on Browser Width</h2>
+<p>Resize the browser width and the image will change at 600px and 1500px.</p>
+
+<picture>
+  <source srcset="img_smallflower.jpg" media="(max-width: 600px)"><!最大寬度600以下用這個>
+  <source srcset="img_flowers.jpg" media="(max-width: 1500px)"><!600~1500>
+  <source srcset="flowers.jpg">
+  <img src="img_flowers.jpg" alt="Flowers" style="width:auto;">
+</picture>
+
+<h1 style="font-size:10vw;">Responsive Text</h1>
+<!字體大小為viewport的10%,Viewport is the browser window size. 1vw = 1% of viewport width. If the viewport is 50cm wide, 1vw is 0.5cm.>
+<p style="font-size:5vw;">Resize the browser window to see how the text size scales.</p>
+<p style="font-size:5vw;">Use the "vw" unit when sizing the text. 10vw will set the size to 10% of the viewport width.</p>
+<p>Viewport is the browser window size. 1vw = 1% of viewport width. If the viewport is 50cm wide, 1vw is 0.5cm.</p>
+
+<p>Make sure you reach the breakpoint at 800px when resizing this frame.</p> <!Media Queries>
+<div class="left">
+  <p>Left Menu</p>
+</div>
+<div class="main">
+  <p>Main Content</p>
+</div>
+<div class="right">
+  <p>Right Content</p>
+</div>
+
+<!HTML RWD///////////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML Computer Code Elements///////////////////////////////////////////////////////////////////////////////////////>
+
+<kbd>Ctrl + S</kbd>
+<!tThe HTML kbd element represents user input, like keyboard input or voice commands.default monospace font>
+<samp>Error!</samp>
+<!<samp element represents output from a program or computing system.default monospace font>
+<code><!HTML <code element defines a fragment of computer code.default monospace font  >
+    x = 5;
+    y = 6;
+    z = x + y;
+</code>   
+
+<var>E</var> = <var>mc</var><sup>2</sup>.  <!<var element defines a variable.>
+
+<!HTML Computer Code Elements///////////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML  form///////////////////////////////////////////////////////////////////////////////////////>
+<h2>Text Input</h2>
+<form> 
+  First name:<br>
+  <input type="text" name="firstname"> <!<input type="text" defines a one-line input field for text input:>
+  <br>
+  Last name:<br>
+  <input type="text" name="lastname"> <!Each input field must have a name attribute to be submitted.>
+</form>
+<p>Note that the form itself is not visible.</p>
+<p>Also note that the default width of a text input field is 20 characters.</p>
+<br> 
+
+<h2>Radio Buttons</h2>
+<form>
+  <input type="radio" name="gender" value="male" checked> Male<br> <!radio>
+  <input type="radio" name="gender" value="female"> Female<br>
+  <input type="radio" name="gender" value="other"> Other  
+</form> 
+
+<h2>HTML Forms</h2>
+<form action="/action_page.php" target="_blank" method="GET">  <!action attribute defines the action to be performed when the form is "submitted".>
+  <!If the action attribute is omitted, the action is set to the current page.>
+  <!method :Specifies the HTTP method used when submitting the form,GET is used, the submitted form data will be visible in the page address field:,he POST method does not display the submitted form data in the page address field.>
+  First name:<br>
+  <input type="text" name="firstname" value="Mickey">
+  <br>
+  Last name:<br>
+  <input type="text" name="lastname" value="Mouse">
+  <br><br>
+  <input type="submit" value="Submit">
+  <!<input type="submit" defines a button for submitting the form data to a form-handler.>
+</form> 
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+<form action="/action_page.php">
+    <fieldset> <!邊框>
+      <legend>Personal information:</legend> <!form的說明 在邊框上>
+      First name:<br>
+      <input type="text" name="firstname" value="Mickey"><br>
+      Last name:<br>
+      <input type="text" name="lastname" value="Mouse"><br><br>
+      <input type="submit" value="Submit">
+    </fieldset>
+  </form>
+
+  <h2>The select Element</h2>
+  <p>The select element defines a drop-down list:</p>
+  <form action="/action_page.php">
+    <select name="cars"> <!<select element defines a drop-down list:>
+      <option value="volvo">Volvo</option> <!<option elements defines an option that can be selected.>
+      <option value="saab">Saab</option>
+      <option value="fiat" selected>Fiat</option>
+      <option value="Audi">Audi</option>
+      
+    </select>
+    <br><br>
+    <input type="submit">
+  </form>
+
+  <form action="/action_page.php">
+    <select name="cars" size="3" multiple> <!<size:一次呈現幾個,可以下滑,multiple:可以一次選多個,要案住ctrl>
+      <option value="volvo">Volvo</option> <!<option elements defines an option that can be selected.>
+      <option value="saab">Saab</option>
+      <option value="fiat">Fiat</option>
+      <option value="Audi">Audi</option>  
+    </select>
+    <br><br>
+    <input type="submit">
+
+    <h2>Textarea</h2>
+    <p>The textarea element defines a multi-line input field.</p>
+    <form action="/action_page.php"> <!textarea!!!!一段訊息>
+      <textarea name="message" rows="10" cols="30">The cat was playing in the garden.</textarea>
+      <br><!css style is ok ~ style="width:10px;height:10px;">
+      <input type="submit">
+    </form>
+    <br><br>
+
+
+    <button type="button" onclick="alert('Hello World!')">Click Me!</button> <!彈出式的提醒>
+    <! Always specify the type attribute for the button element>
+
+    <form action="/action_page.php">
+        <input list="browsers" name="browser">
+        <datalist id="browsers"><!id 和input的要一樣,>
+          <option value="Internet Explorer">
+          <option value="Firefox">
+          <option value="Chrome">
+          <option value="Opera">
+          <option value="Safari">
+        </datalist>
+        <input type="submit">
+      </form>
+      
+      <p><b>Note:</b> The datalist tag is not supported in Safari or IE9 (and earlier).</p>
+
+
+      <form action="/action_page.php"
+      oninput="x.value=parseInt(a.value)+parseInt(b.value)"> <!重要>
+        0
+        <input type="range" id="a" name="a" value="50"> <!滑桿>
+        100 +
+        <input type="number" id="b" name="b" value="50">
+        =
+        <output name="x" for="a b"></output><!重要>
+        0
+        <br><br>
+        <input type="submit">
+      </form>
+
+<!HTML  form///////////////////////////////////////////////////////////////////////////////////////>
+</body>
+</html>
