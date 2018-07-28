@@ -227,7 +227,7 @@
 <p id = "p01"> i am p01</p>
 <p> my first paragraph.</p> <! paragraph tag & 會換2行,多的space不會列入計算,行數依螢幕大小決定 >
 <p style="color: red" title="I'm a tooltip" > my second paragraph</p> <!style:font-size,text-align,font-family,color > 
-<p><font face="verdana" color="green" style="font-size: 150%"> this is font </font></p> 
+<p><font face="verdana" color="green" style="font-size: 150%"> this is font </font></p>  <! font標籤在html5不再使用改用css>
 <p style="font-family: 'Courier New', Courier, monospace;"> this is second font </p> <!字型>
 <p style="font-size: 150%" > 150%!!!!</p><!大小>
 <p style="text-align: center;"> center paragraph</p><!置中>
@@ -475,7 +475,7 @@ Example.com<br>
 <!color///////////////////////////////////////////////////////////////////////////////////////>
 
 <!HTML Block-level Element///////////////////////////////////////////////////////////////////////////////////////>
-<!always starts on a new line and takes up the full wdith avaliable ex:p,div,article,ol,ul.....>
+<!always starts on a new line and takes up the full width avaliable ex:p,div,article,ol,ul.....>
 <div>Hello</div> <!div element is often used as a container for other element,attributes:style,class,id are common>
 <div style="background-color: #111111;color:white;padding:20px">
     <h2>London</h2>
@@ -695,6 +695,11 @@ function changeimg(sw){  /*script to change img*/
 </form> 
 
 <h2>HTML Forms</h2>
+<!get:该方法将表单数据以名称/值对的形式附加到 URL 中
+该方法对于用户希望加入书签的表单提交很有用
+在 URL 中放置的数据量是有限制的（不同的浏览器有差别），所以无法确保所有表单数据得到正确地传输
+绝不要使用 "get" 方法来传输敏感信息！（密码或其他敏感信息在浏览器地址栏中是可见的）
+>
 <form action="/action_page.php" target="_blank" method="GET">  <!action attribute defines the action to be performed when the form is "submitted".>
   <!If the action attribute is omitted, the action is set to the current page.>
   <!method :Specifies the HTTP method used when submitting the form,GET is used, the submitted form data will be visible in the page address field:,he POST method does not display the submitted form data in the page address field.>
@@ -756,6 +761,8 @@ function changeimg(sw){  /*script to change img*/
 
     <button type="button" onclick="alert('Hello World!')">Click Me!</button> <!彈出式的提醒>
     <! Always specify the type attribute for the button element>
+    <input type="button" onclick="alert('Hello World!')" value="Click Me!"> 
+
 
     <form action="/action_page.php">
         <input list="browsers" name="browser">
@@ -785,6 +792,452 @@ function changeimg(sw){  /*script to change img*/
         <input type="submit">
       </form>
 
+      <br>
 <!HTML  form///////////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML  Input Types///////////////////////////////////////////////////////////////////////////////////////>
+<form action="/action_page.php">
+    First name:<br>
+    <input type="text" name="firstname" >  <! defines a one-line text input field:>
+    <br>
+    Last name:<br>
+    <input type="text" name="lastname">
+    <br><br>
+    <input type="submit">
+</form>  
+<p>Note that the form itself is not visible.</p>
+<p>Also note that the default width of a text field is 20 characters.</p>
+
+<br>
+
+<form action="">
+    User name:<br>
+    <input type="text" name="userid"> 
+    <br>
+    User password:<br>
+    <input type="password" name="psw"> <!defines a password field: password field are masked>
+</form>   
+<p>The characters in a password field are masked (shown as asterisks or circles).</p>
+
+<br>
+
+<form action="/action_page.php">
+    First name:<br>
+    <input type="text" name="firstname" value="Mickey">
+    <br>
+    Last name:<br>
+    <input type="text" name="lastname" value="Mouse"> 
+    <br><br>
+    <input type="submit" value="Submit"> <!"Submit", the form-data will be sent to a page called "/action_page.php">
+</form>  
+<p>If you click "Submit", the form-data will be sent to a page called "/action_page.php".</p>
+
+<br>
+
+<form action="/action_page.php">
+    First name:<br>
+    <input type="text" name="firstname" value="Mickey">
+    <br>
+    Last name:<br>
+    <input type="text" name="lastname" value="Mouse">
+    <br><br>
+    <input type="submit" value="Submit">
+    <input type="reset">
+    <!If you change the input values and then click the "Reset" button, the form-data will be reset to the default values.>
+</form> 
+
+<br>
+
+<form action="/action_page.php">
+    <input type="radio" name="gender" value="male" checked> Male<br> <!radio!!>
+    <input type="radio" name="gender" value="female"> Female<br>
+    <input type="radio" name="gender" value="other"> Other<br><br>
+    <input type="submit">
+  </form> 
+
+  <br>
+
+  <form action="/action_page.php">
+    <input type="checkbox" name="vehicle1" value="Bike">I have a bike <!checkbox >
+    <br>
+    <input type="checkbox" name="vehicle2" value="Car">I have a car 
+    <br><br>
+    <input type="submit">
+</form> 
+
+<br>
+
+<h2>Input Button</h2>
+<input type="button" onclick="alert('Hello World!')" value="Click Me!"> <!onclick 也可以接Function>
+
+<br>
+
+</form>
+<form action="/action_page.php">
+    Select your favorite color:
+    <input type="color" name="favcolor" value="#ff0000"> <! is used for input fields that should contain a color.>
+    <input type="submit">
+</form>
+<p><b>Note:</b> type="color" is not supported in Internet Explorer 11 and earlier versions or Safari 9.1 and earlier versions.</p>
+
+<br>
+
+<form action="/action_page.php">
+    Birthday:
+    <input type="date" name="bday"> <!You can also use the min and max attributes to add restrictions to dates:>
+    <br><br>
+    Enter a date before 1980-01-01:<br>
+    <input type="date" name="bday" max="1979-12-31"><br><br>
+    Enter a date after 2000-01-01:<br>
+    <input type="date" name="bday" min="2000-01-02"><br><br>
+    <input type="submit">
+</form>
+<p><strong>Note:</strong> type="date" is not supported in Safari or Internet Explorer 11 and earlier versions.</p>
+ 
+<br>
+
+<form action="/action_page.php">
+    Birthday (date and time):
+    <input type="datetime-local" name="bdaytime"> <!有詳細的時和分,date and time> 
+    <input type="submit" value="Send">
+</form>
+<p><strong>Note:</strong> type="datetime-local" is not supported in Firefox, Safari or Internet Explorer 12 and earlier versions.</p>
+  
+<br>
+
+<form action="/action_page.php">
+    E-mail:
+    <input type="email" name="email"> <!email>
+    <input type="submit">
+</form> 
+<p><b>Note:</b>type="email" is not supported in IE9 and earlier.</p>
+  
+<br>
+
+<p>Show a file-select field which allows a file to be chosen for upload:</p>
+<form action="/action_page.php">
+  Select a file: <input type="file" name="myFile"><br><br> <!選擇檔案>
+  <input type="submit">
+</form>
+
+<br>
+
+<form action="/action_page.php">
+    Birthday (month and year):
+    <input type="month" name="bdaymonth"> <! allows the user to select a month and year.>
+    <input type="submit">
+</form> 
+<p><strong>Note:</strong> type="month" is not supported in Firefox, Safari, or Internet Explorer 11 and earlier versions.</p>
+  
+<br>
+
+<form action="/action_page.php">
+    Quantity (between 1 and 5):
+    <input type="number" name="quantity" min="1" max="5">
+    <input type="submit">
+</form>
+<p><b>Note:</b> type="number" is not supported in IE9 and earlier.</p>
+  
+<br>
+
+<p>Depending on browser support:<br>Fixed steps will apply in the input field.</p>
+<form action="/action_page.php">
+  Quantity:
+  <input type="number" name="quantity"
+   min="0" max="100" step="10" value="30"> <!假如 step="3"，则合法数字应该是 -3、0、3、6，以此类推>
+  <input type="submit">
+</form>
+<p><b>Note:</b>type="number" is not supported in IE9 and earlier.
+
+<br>
+
+<p>Depending on browser support:<br>The input type "range" can be displayed as a slider control.<p>
+    <form action="/action_page.php" method="get">
+      Points:
+      <input type="range" name="points" min="0" max="10"> <!滑桿>
+      <input type="submit">
+    </form>
+<p><b>Note:</b>type="range" is not supported in Internet Explorer 9 and earlier versions.</p>
+
+<br>
+
+<form action="/action_page.php">
+    Search Google:
+    <input type="search" name="googlesearch"> <!is used for search fields (a search field behaves like a regular text field>
+    <input type="submit">
+  </form>
+
+  <br>
+
+  <p>The <strong>input type="tel"</strong> is used for input fields that should contain a telephone number:</p>
+  <form action="/action_page.php">
+    Telephone:
+    <input type="tel" name="usrtel">
+    <input type="submit">
+  </form>
+  <p><b>Note:</b> type="tel" is only supported in Safari 8 and newer versions.</p>
+
+  <br>
+
+  
+<form action="/action_page.php">
+    Select a time:
+    <input type="time" name="usr_time"> <!A time picker might pop-up when you enter the input field.>
+    <input type="submit">
+</form>
+
+  <br>
+
+<form action="/action_page.php">
+    Add your homepage:
+    <input type="url" name="homepage"> <! is used for input fields that should contain a URL address>
+    <input type="submit">
+</form>
+  <p><b>Note:</b>
+  The type="url" is not supported in IE9 and earlier versions.</p>
+
+<br>
+
+  <p>Depending on browser support:<br>A date picker can pop-up when you enter the input field.</p>
+  <form action="/action_page.php">
+    Select a week:
+    <input type="week" name="year_week"> <! select a week and year:>
+    <input type="submit">
+  </form>
+  <p><strong>Note:</strong> type="week" is not supported in Firefox, Safari or Internet Explorer 11 and earlier versions.</p>
+  
+<br>
+
+<!HTML  Input Types///////////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML  Input Attributes///////////////////////////////////////////////////////////////////////////////////////>
+<form action="">
+    First name:<br>
+    <input type="text" name="firstname" value="John"><!The value attribute specifies the initial value for an input field:>
+    <br>
+    Last name:<br>
+    <input type="text" name="lastname">
+</form>
+
+<br>
+
+<form action="">
+    First name:<br>
+    <input type="text" name="firstname" value ="John" readonly> <!the input field is read only (cannot be changed)>
+    <br>
+    Last name:<br>
+    <input type="text" name="lastname">
+</form>
+
+<br>
+
+<p>The disabled attribute specifies that the input field is disabled:</p>
+<form action="">
+First name:<br>
+<input type="text" name="firstname" value ="John" disabled="disabled"> <!the input field is disabled>
+<br>
+Last name:<br>
+<input type="text" name="lastname">
+</form>
+
+<br>
+
+<p>The size attribute specifies the size (in characters) of the input field:</p>
+<form action="">
+First name:<br>
+<input type="text" name="firstname" value="John" size="40"> <!size attribute specifies the size (in characters) for the input field:>
+<br>
+Last name:<br>
+<input type="text" name="lastname">
+</form>
+
+<br>
+
+<p>The maxlength attribute specifies the maximum allowed length for the input field:</p>
+<form action="">
+First name:<br>
+<input type="text" name="firstname" maxlength="10"> <!maxlength :最多可以放幾個字>
+<br>
+Last name:<br>
+<input type="text" name="lastname">
+</form>
+<p><b>NOTE:</b>The maxlength attribute does not provide any feedback. If you want to alert the user, you must write JavaScript code.</p>
+
+<br>
+
+<h2>The autocomplete Attribute</h2>
+<form action="/action_page.php" autocomplete="on"> <!使用autocompele可以自動帶入以前輸入過的字串，另可個別指定哪個input不要使用autocompele功能>
+  First name:<input type="text" name="fname"><br>
+  Last name: <input type="text" name="lname"><br>
+  E-mail: <input type="email" name="email" autocomplete="off"><br>
+  <input type="submit">
+</form>
+<p>Fill in and submit the form, then reload the page to see how autocomplete works.</p>
+<p>Notice that autocomplete is "on" for the form, but "off" for the e-mail field.</p>
+
+<br>
+
+<p>The novalidate attribute specifies that the form data should not be validated when submitted.</p>
+<form action="/action_page.php" novalidate> <!此功能可以在前端檢查數值，如不使用查驗則在form tag加上novalidate>
+E-mail: <input type="email" name="user_email">
+<input type="submit">
+</form>
+<p><strong>Note:</strong> The novalidate attribute of the form tag is not supported in Internet Explorer 9 and earlier versions, or in Safari 10 and earlier versions.</p>
+
+<br>
+
+<form action="/action_page.php">
+    First name:<input type="text" name="fname" autofocus><br><!頁面初始時自動focus在哪一個欄位>
+    Last name: <input type="text" name="lname"><br>
+    <input type="submit">
+  </form>
+  <p><strong>Note:</strong> The autofocus attribute of the input tag is not supported in Internet Explorer 9 and earlier versions.</p>
+
+<br>
+
+<form action="/action_page.php" id="form1"><!此功能可以讓input tag間接跳出form tag外，只要指定到form的歸屬即可。>
+    First name: <input type="text" name="fname"><br>
+    <input type="submit" value="Submit">
+</form> 
+    <p>The "Last name" field below is outside the form element, but still part of the form.</p>
+    Last name: <input type="text" name="lname" form="form1"> 
+
+<br>
+
+<p>The formaction attribute specifies the URL of a file that will process the input control when the form is submitted.</p>
+<form action="/action_page.php">
+  First name: <input type="text" name="fname"><br>
+  Last name: <input type="text" name="lname"><br>
+  <input type="submit" value="Submit"><br>
+  <input type="submit" formaction="/action_page2.php" value="Submit to another page">
+  <!當type為submit或image時，此功能可以個別指定formaction要傳到哪個網頁
+  。另外還有formenctype、formmethod、formnovalidate、formtarget，都是可在input tag單獨設定該tag可做什麼事。>
+</form>
+
+<br>
+
+<p>The formenctype attribute specifies how the form data should be encoded when submitted (only for forms with method="post").</p>
+<form action="/action_page_binary.asp" method="post"> <!post:该方法以 HTTP post 事务的方式来传递表单数据
+    无法将通过 "post" 方法提交的表单加入书签,与 "get" 相比，"post" 方法更健壮更安全，而且 "post" 没有容量限制>
+  First name: <input type="text" name="fname"><br>
+  <input type="submit" value="Submit">
+  <input type="submit" formenctype="multipart/form-data" value="Submit as Multipart/form-data"> <!formenctype:带有两个提交按钮的表单（拥有有不同的编码方式）：>
+</form>
+
+<br>
+
+<h2>The formmethod Attribute</h2>
+<p>The formmethod attribute defines the HTTP method for sending form-data to the action URL.</p>
+<form action="/action_page.php" method="get">
+  First name: <input type="text" name="fname"><br>
+  Last name: <input type="text" name="lname"><br>
+  <input type="submit" value="Submit">
+  <input type="submit" formmethod="post" value="Submit using POST"> <!不同的method>
+</form>
+<p><strong>Note:</strong> The formmethod attribute of the input tag is not supported in Internet Explorer 9 and earlier versions.</p>
+
+<br>
+
+<h2>The formnovalidate Attribute</h2>
+<form action="/action_page.php">
+  E-mail: <input type="email" name="userid"><br>
+  <input type="submit" value="Submit"><br>
+  <input type="submit" formnovalidate value="Submit without validation"> <!不檢驗數值>
+</form>
+
+<br>
+
+<p>The formtarget attribute specifies a name or a keyword that indicates where to display the response that is received after submitting the form.</p>
+<form action="/action_page.php">
+  First name: <input type="text" name="fname"><br>
+  Last name: <input type="text" name="lname"><br>
+  <input type="submit" value="Submit as normal">
+  <input type="submit" formtarget="_blank" value="Submit to a new window/tab"> <!可以選擇視窗開的地方>
+</form>
+
+<br>
+
+<form action="/action_page.php">
+    First name: <input type="text" name="fname"><br>
+    Last name: <input type="text" name="lname"><br>
+    <input type="image" src="img_submit.gif" alt="Submit" width="48" height="48"> <!width height >
+    <!Always specify the size of images. If the browser does not know the size, the page will flicker while images load.>
+</form>
+
+<br>
+
+<p>The list attribute refers to a datalist element that contains pre-defined options for an input element.</p>
+<form action="/action_page.php" method="get">
+<input list="browsers" name="browser">
+<datalist id="browsers"> <!id和input一樣>
+  <option value="Internet Explorer">
+  <option value="Firefox">
+  <option value="Chrome">
+  <option value="Opera">
+  <option value="Safari">
+</datalist>
+<input type="submit">
+</form>
+
+<br>
+
+
+<form action="/action_page.php"> <!min max > 
+    Enter a date before 1980-01-01:
+    <input type="date" name="bday" max="1979-12-31"><br> 
+    Enter a date after 2000-01-01:
+    <input type="date" name="bday" min="2000-01-02"><br>
+    Quantity (between 1 and 5):
+    <input type="number" name="quantity" min="1" max="5"><br> 
+    <input type="submit"> 
+  </form>
+
+  <br>
+
+  <form action="/action_page.php">
+    Select images: <input type="file" name="img" multiple>  <!案ctrl可以一次選很多個>
+    <input type="submit">
+  </form>
+
+<br>
+
+ <p>The pattern attribute specifies a regular expression that the input element's value is checked against.</p>
+<form action="/action_page.php">
+    Country code: <input type="text" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code">
+    <!不論大小寫的三個英文字母皆可成功輸入。此例還加上了title提示屬性其用法類似placeholder。>
+    <!限定輸入三個中文字的話，使用pattern="^.{3}$">
+<input type="submit">
+</form>
+
+<br>
+
+<p>The placeholder attribute specifies a hint that describes the expected value of an input field (a sample value or a short description of the format).</p>
+<form action="/action_page.php">
+  <input type="text" name="fname" placeholder="First name"><br> <!提示在text裡面>
+  <input type="text" name="lname" placeholder="Last name"><br>
+  <input type="submit" value="Submit">
+</form>
+
+<br>
+
+<p>The required attribute specifies that an input field must be filled out before submitting the form.</p>
+<form action="/action_page.php">
+  Username: <input type="text" name="usrname" required> <!required:不能空白>
+  <input type="submit">
+</form>
+
+<br>
+
+<p>The step attribute specifies the legal number intervals for an input element.</p>
+<form action="/action_page.php">
+  <input type="number" name="points" step="3"> <!Example: if step="3", legal numbers could be -3, 0, 3, 6, etc.>
+  <input type="submit">
+</form>
+
+
+
+<!HTML  Input Attributes///////////////////////////////////////////////////////////////////////////////////////>
 </body>
 </html>
+
+
