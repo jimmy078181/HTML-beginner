@@ -18,7 +18,7 @@
  <meta name="author" content="John Doe"><!Define the author of a page:>
  <meta http-equiv="refresh" content="30"><!Refresh document every 30 seconds:>
 
- <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalabe=no"><!rwd``使螢幕寬度=裝置寬度,防止使用者縮放>
+ <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"><!rwd``使螢幕寬度=裝置寬度,防止使用者縮放>
 
  <!link rel="stylesheet" href="style.css">  
  <!external CSS IMPORT!,rel = 和href連接的檔案是什麼關係,如果沒有放在網路上https:,在相同的folder>
@@ -1301,7 +1301,503 @@ E-mail: <input type="email" name="user_email">
           <p>Video courtesy of <a href="mp4/VID20160906122603.mp4" target="_blank">京都清水寺</a>.</p>
 <!HTML  Videos///////////////////////////////////////////////////////////////////////////////////////>
 
+<!HTML  audio///////////////////////////////////////////////////////////////////////////////////////>
 
+<audio controls> <!autoplay  也可以用>
+    <source src="horse.ogg" type="audio/ogg">
+    <source src="horse.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+<br>
+
+  <!HTML  audio-ins///////////////////////////////////////////////////////////////////////////////////////>
+  <br>
+
+  <!HTML  Plug-ins///////////////////////////////////////////////////////////////////////////////////////>
+
+  <object width="400" height="50" data="bookmark.swf"></object>
+  <!object element It is used to embed plug-ins (like Java applets, PDF readers, Flash Players) in web pages.,
+  .swf 需要用flash來開>
+  <object width="100%" height="500px" data="rwdtest.html"></object> <!開html>
+  <object data="chu.jpg" style="width: 100px;height: 100px;"></object> <!img也可以>
+
+  <embed width="400" height="50" src="bookmark.swf"> 
+    <!Note that the <embed element does not have a closing tag. It can not contain alternative text.>
+<embed width="100%" height="500px" src="rwdtest.html"><!開html>
+    <embed src="chu.jpg" style="width: 100px;height: 100px;">
+  <!HTML  Plug-ins///////////////////////////////////////////////////////////////////////////////////////>
+
+<br>
+
+  <!HTML  YouTube///////////////////////////////////////////////////////////////////////////////////////>
+  <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+
+  <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0"></iframe>
+  <!Value 0 (default): The video will not play automatically when the player loads.
+    Value 1: The video will play automatically when the player loads.>
+
+<iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=tgbNymZ7vqY&loop=0"></iframe>
+<!Value 0 (default): The video will play only once.
+Value 1: The video will loop (forever).>
+<!playlist=tgbNymZ7vqY 可以撥放 playlist>
+
+<iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0"></iframe>
+<!Value 0: Player controls does not display. 控制條
+Value 1 (default): Player controls display.>
+
+<!Note: YouTube <object and <embed were deprecated from January 2015. You should migrate your videos to use <iframe instead.>
+<br>
+<br>
+<!HTML YouTube///////////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML canvas///////////////////////////////////////////////////////////////////////////////////////>
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+    Your browser does not support the HTML5 canvas tag.
+</canvas>
+<!Always specify an id attribute (to be referred to in a script), 
+  and a width and height attribute to define the size of the canvas.
+  To add a border, use the style attribute.>
+<br>
+
+<canvas id="myCanvas_line" width="200" height="100" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>   
+<script> /*line*/
+  var c = document.getElementById("myCanvas_line"); 
+  var ctx= c.getContext("2d");
+  ctx.moveTo(0,0);
+  ctx.lineTo(200,100);
+  ctx.stroke();  
+</script>
+
+<br>
+
+<canvas id="myCanvas_circle" width="200" height="100" style="border:1px solid #d3d3d3;">
+        Your browser does not support the HTML5 canvas tag.</canvas>
+        
+  <script>/*circle*/
+    var c = document.getElementById("myCanvas_circle");
+    var ctx = c.getContext("2d");
+    ctx.beginPath(); //最好在每次畫新東西的時候 都宣告一次不然會繼承上一的東西
+    ctx.arc(95,50,40,0*Math.PI,2*Math.PI); /*(x,y,半徑,starAngle,endAngle))*/
+    ctx.stroke(); //// Draw it
+  </script> 
+
+<br>
+
+<canvas id="myCanvas_Hello" width="200" height="100" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.</canvas>
+  <script>
+    var c = document.getElementById("myCanvas_Hello");
+    var ctx = c.getContext("2d");
+    ctx.font = "30px Arial";
+    ctx.fillText("Hello World",10,50); /*x,y坐標*,內部有填顏色的字*/ 
+  </script>
+
+<br>
+
+<canvas id="myCanvas_Helloword" width="200" height="100" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.</canvas>
+    
+<script>
+    var c = document.getElementById("myCanvas_Helloword");
+    var ctx = c.getContext("2d");
+    ctx.font = "30px Arial";
+    ctx.strokeText("Hello World",10,50); /*只有外框的字*/
+</script>
+
+<br>
+
+<canvas id="myCanvas_gardient" width="200" height="100" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.</canvas>
+    
+<script>
+    var c = document.getElementById("myCanvas_gardient");
+    var ctx = c.getContext("2d");
+    // Create gradient
+    var grd = ctx.createLinearGradient(0,0,200,100);  /*從(0,0)往(200,100)方向漸層*/
+    grd.addColorStop(0,"red");/*從紅色漸到白色*/
+    grd.addColorStop(1,"white");
+    // Fill with gradient
+    ctx.fillStyle = grd; /*填滿哪種顏色*/
+    ctx.fillRect(10,10,150,80); 
+</script>
+
+<br>
+
+<canvas id="myCanvas_Circulargardient" width="200" height="100" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.</canvas>
+    
+    <script>
+    var c = document.getElementById("myCanvas_Circulargardient");
+    var ctx = c.getContext("2d");
+    
+    // Create gradient
+    var grd = ctx.createRadialGradient(75,50,5,90,60,100); //(StarX,StarY,Star半徑,EndX,EndY,End半徑) 有點像外擴
+    grd.addColorStop(0,"red");
+    grd.addColorStop(1,"white");
+    
+    // Fill with gradient
+    ctx.fillStyle = grd;
+    ctx.fillRect(10,10,150,80);
+    </script>
+
+<br>
+
+<p>Image to use:</p>
+<img id="scream" src="chu.jpg" alt="The Scream" width="220" height="277">
+
+<p>Canvas to fill:</p>
+<canvas id="myCanvas" width="250" height="300"
+style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<p><button onclick="myCanvas()">Try it</button></p>
+
+<script>
+function myCanvas() { // 用canvas 展示img
+
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var img = document.getElementById("scream");
+    ctx.drawImage(img,10,10); //從(10,10)開始放圖片
+}
+</script>
+
+<br>
+
+
+<script>
+var canvas = document.getElementById('tutorial');
+if (canvas.getContext){ /*用來檢查是否支援cancas*/
+  var ctx = canvas.getContext('2d');
+  // drawing code here
+} else {
+  // canvas-unsupported code here
+}
+</script>
+
+<br>
+
+<script > /*type="application/javascript"*/
+    function draw() {
+      var canvas = document.getElementById("canvas");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "rgb(200,0,0)";
+        ctx.fillRect (10, 10, 55, 50);/*(x,y,多寬的x,多長的y)*/
+
+        ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+        ctx.fillRect (35, 30, 65, 60); 
+      } //if()
+    } // draw()
+</script>
+
+<canvas id="canvas" width="150" height="150"></canvas> ;
+<script>
+    draw() ;
+</script>
+
+<br>
+
+<!HTML canvas///////////////////////////////////////////////////////////////////////////////////////>
+
+<!HTML SVG///////////////////////////////////////////////////////////////////////////////////////>
+<!SVG stands for Scalable Vector Graphics
+  SVG is used to define graphics for the Web
+  SVG is a W3C recommendation>
+
+  <svg width="100" height="100">
+    <circle cx="50" cy="50" r="40"stroke="green" stroke-width="3" fill="yellow" /> <!stroke:外框,fill:內部顏色>
+  Sorry, your browser does not support inline SVG.
+  </svg>
+<br>
+
+<svg width="400" height="100">
+    <rect width="400" height="100" style="fill:rgb(0,0,255);stroke-width:10;stroke:rgb(0,0,0) ;
+    fill-opacity:0.1;stroke-opacity:0.6;"/> <! fill-opacity:0.1內部的透明度,stroke-opacity:外部的透明度>
+  Sorry, your browser does not support inline SVG.
+  </svg>
+
+ <br>
+
+ <svg width="400" height="180">
+    <rect x="50" y="20" rx="20" ry="20" width="150" height="150"
+    style="fill:red;stroke:black;stroke-width:5;opacity:0.5" /><!The rx and the ry attributes rounds the corners of the rectangle >
+  Sorry, your browser does not support inline SVG.
+  </svg>
+
+<br>
+
+<svg width="300" height="200"> <!5角星>
+    <polygon points="100,10 40,198 190,78 10,78 160,198"
+    style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" /><!fill-rule:evenodd中間不填      fill-rule:nonzero全部填滿>
+  Sorry, your browser does not support inline SVG.
+  </svg>
+
+  <br>
+
+  <svg height="130" width="500">
+    <defs>
+      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%"> <!梯度>
+        <stop offset="0%"
+        style="stop-color:rgb(255,255,0);stop-opacity:1" />
+        <stop offset="100%"
+        style="stop-color:rgb(255,0,0);stop-opacity:1" />
+      </linearGradient>
+    </defs>
+    <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" /> <!橢圓>
+    <text fill="#ffffff" font-size="45" font-family="Verdana"
+    x="50" y="86">SVG</text>
+  Sorry, your browser does not support inline SVG.
+  </svg>
+
+<!HTML SVG///////////////////////////////////////////////////////////////////////////////////////>
+<br>
+
+
+<!HTML Google Map///////////////////////////////////////////////////////////////////////////////////////>
+
+<div id="googleMap1" style="width:400px;height:300px;"></div>
+<br>
+<div id="googleMap2" style="width:400px;height:300px;"></div>
+<br>
+<div id="googleMap3" style="width:400px;height:300px;"></div>
+<br>
+<div id="googleMap4" style="width:400px;height:300px;"></div>
+
+<script>
+function myMap() {
+  var mapOptions1 = {
+    center: new google.maps.LatLng(51.508742,-0.120850),
+    zoom:9,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var mapOptions2 = {
+    center: new google.maps.LatLng(51.508742,-0.120850),
+    zoom:9,
+    mapTypeId: google.maps.MapTypeId.SATELLITE
+  };
+  var mapOptions3 = {
+    center: new google.maps.LatLng(51.508742,-0.120850),
+    zoom:9,
+    mapTypeId: google.maps.MapTypeId.HYBRID
+  };
+  var mapOptions4 = {
+    center: new google.maps.LatLng(51.508742,-0.120850),
+    zoom:9,
+    mapTypeId: google.maps.MapTypeId.TERRAIN
+  };
+  var map1 = new google.maps.Map(document.getElementById("googleMap1"),mapOptions1);
+  var map2 = new google.maps.Map(document.getElementById("googleMap2"),mapOptions2);
+  var map3 = new google.maps.Map(document.getElementById("googleMap3"),mapOptions3);
+  var map4 = new google.maps.Map(document.getElementById("googleMap4"),mapOptions4);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+<!HTML Google Map///////////////////////////////////////////////////////////////////////////////////////>
+
+<br>
+
+<!HTML API///////////////////////////////////////////////////////////////////////////////////////>
+<p>Click the button to get your coordinates.</p>
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+
+<br><!//////////////////////////////////////////////////////////>
+
+<p>Click the button to get your coordinates.</p>
+<button onclick="getLocation()">Try It</button>
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {//文字顯示沒有地圖
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+</script>
+
+<br><!//////////////////////////////////////////////////////////>
+
+<p id="demo">Click the button to get your position.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<div id="mapholder"></div>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser."; 
+    }
+}
+
+function showPosition(position) {//有地圖
+    var latlon = position.coords.latitude + "," + position.coords.longitude;
+    var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
+    +latlon+"&zoom=14&size=400x300&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU";
+    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+}
+//To use this code on your website, get a free API key from Google.
+//Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+</script>
+
+
+<br><!///////////////////////////////////////////////////////////>
+
+<p id="demo">Click the button to get your position.</p>
+<button onclick="getLocation()">Try It</button>
+
+<div id="mapholder"></div>
+
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU"></script>
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+<script>
+var x = document.getElementById("demo");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+    var latlon = new google.maps.LatLng(lat, lon)
+    var mapholder = document.getElementById('mapholder')
+    mapholder.style.height = '250px';
+    mapholder.style.width = '500px';
+
+    var myOptions = {
+    center:latlon,zoom:14,
+    mapTypeId:google.maps.MapTypeId.ROADMAP,
+    mapTypeControl:false, //可以移動地圖嗎?
+    navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+    }
+    
+    var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
+    var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+</script>
+
+<br><!/////////////////////////////////////////////////////////////////////////////////>
+
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo"); 
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition); 
+        /* Returns the current position of the user and continues to return updated position as the user moves (like the GPS in a car).
+        watchPosition() method. You need an accurate GPS device to test this (like iPhone):*/
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";}
+    }
+    
+function showPosition(position) {
+    x.innerHTML="Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+
+<!HTML API///////////////////////////////////////////////////////////////////////////////////////>
 </body>
 </html>
 
